@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATMAR — Hydroponic Fodder Systems for Livestock & Poultry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        /* Header & Navigation */
+        
+        header {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d5016;
+            letter-spacing: -0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #2d5016;
+        }
+        
+        .nav-cta {
+            background: #2d5016;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-cta:hover {
+            background: #1f3810;
+        }
+        /* Hero Section */
+        
+        .hero {
+            background: linear-gradient(135deg, #f8faf6 0%, #f0f5ed 100%);
+            padding: 6rem 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(168, 213, 186, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        
+        .hero h1 .highlight {
+            color: #2d5016;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            max-width: 90%;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #2d5016;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1f3810;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #2d5016;
+            border: 2px solid #2d5016;
+        }
+        
+        .btn-secondary:hover {
+            background: #2d5016;
+            color: white;
+        }
+        
+        .hero-visual {
+            border-radius: 12px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Section Layout */
+        
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        
+        section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        /* Benefits Section */
+        
+        .benefits {
+            background: #ffffff;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            padding: 2rem;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            border-color: #a8d5ba;
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.08);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        /* Systems Section */
+        
+        .systems {
+            background: #f8faf6;
+        }
+        
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .system-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #a8d5ba;
+            transition: transform 0.3s ease;
+        }
+        
+        .system-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .system-price {
+            font-size: 1.8rem;
+            color: #2d5016;
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+        
+        .system-price span {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .system-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .system-card li {
+            padding: 0.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .system-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a8d5ba;
+            font-weight: bold;
+        }
+        /* How It Works */
+        
+        .how-it-works {
+            background: #ffffff;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #2d5016;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.7;
+        }
+        /* Stats Section */
+        
+        .stats {
+            background: linear-gradient(135deg, #2d5016 0%, #1f3810 100%);
+            color: white;
+        }
+        
+        .stats h2 {
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #a8d5ba;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: #e8e8e8;
+        }
+        /* Crops Section */
+        
+        .crops {
+            background: #f8faf6;
+        }
+        
+        .crops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        
+        .crop-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .crop-card.featured {
+            border: 2px solid #2d5016;
+        }
+        
+        .crop-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .crop-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        /* Gallery Section */
+        
+        .gallery {
+            background: #ffffff;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.12);
+        }
+        
+        .gallery-caption {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2d5016;
+        }
+        /* Videos Section */
+        
+        .videos {
+            background: #f8faf6;
+        }
+        
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .video-item {
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .video-item video {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            display: block;
+        }
+        
+        .video-caption {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            margin-top: 0.75rem;
+        }
+        /* CTA Section */
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2d5016 0%, #1f3810 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            margin: 5rem 2rem;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #e8e8e8;
+        }
+        
+        .cta-section .btn-secondary {
+            color: white;
+            border-color: white;
+        }
+        
+        .cta-section .btn-secondary:hover {
+            background: white;
+            color: #2d5016;
+        }
+        /* Footer */
+        
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #a8d5ba;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .nav-cta {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-visual {
+                height: 300px;
+            }
+            section {
+                padding: 3rem 1.5rem;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">GATMAR</div>
+            <ul>
+                <li><a href="#systems">Units</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#how">Our Process</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="tel:+254758578382" class="nav-cta">Book a Site Visit</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h1>From Seed to Fodder in <span class="highlight">7 Days</span></h1>
+                <p>Hydroponic fodder systems for livestock and poultry farmers. Manual and automatic units, sized to your herd, with full training and ongoing support from GATMAR.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+254758578382" class="btn btn-primary">Book a Site Visit</a>
+                    <a href="#systems" class="btn btn-secondary">See Our Units</a>
+                </div>
+            </div>
+            <div class="hero-visual"><img src="feeding-cattle.jpg" alt="Cattle being fed fresh GATMAR hydroponic fodder"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <h2>The Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">36 kg/m²</div>
+                <div class="stat-label">Fodder yield every 7 days</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1 → 12 kg</div>
+                <div class="stat-label">Fodder from every 1kg of sprouted barley seed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7 Days</div>
+                <div class="stat-label">From seed to feed-ready fodder</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">~15%</div>
+                <div class="stat-label">Crude protein in barley fodder</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="about">
+        <h2>Why Hydroponic Fodder</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💧</div>
+                <h3>Less Water, More Yield</h3>
+                <p>Produce 36kg of fresh fodder per m² every 7 days using a fraction of the water traditional fodder farming needs.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📈</div>
+                <h3>12x Return on Seed</h3>
+                <p>1kg of sprouted barley seed yields up to 12kg of fresh fodder — a dramatically efficient feed conversion.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🌾</div>
+                <h3>High-Protein Feed</h3>
+                <p>Barley fodder delivers around 15% crude protein, giving your livestock and poultry a nutrient-dense, consistent diet.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🐄</div>
+                <h3>Built for Livestock & Poultry</h3>
+                <p>Units are sized to match your herd or flock, so you produce exactly the fodder volume you need.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">♻️</div>
+                <h3>Less Land Required</h3>
+                <p>Produce more feed per square meter than open-field growing, freeing up land for other uses.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🎓</div>
+                <h3>Hands-On Training Included</h3>
+                <p>We don't just install your unit — we train your team on maintenance and day-to-day fodder production.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems Section -->
+    <section class="systems" id="systems">
+        <h2>Our Units</h2>
+        <div class="systems-grid">
+            <div class="system-card">
+                <h3>Manual Unit</h3>
+                <p style="color: #999; margin-bottom: 1rem;">Hands-on, lower-cost entry point</p>
+                <div class="system-price">Custom Quote <span>after site visit</span></div>
+                <ul>
+                    <li>Ideal for smaller herds and flocks</li>
+                    <li>Manual watering and monitoring</li>
+                    <li>Lower upfront investment</li>
+                    <li>Full training on daily operation</li>
+                    <li>Unit sized to your needs via site visit</li>
+                </ul>
+                <a href="tel:+254758578382" class="btn btn-primary" style="width: 100%; text-align: center;">Book a Site Visit</a>
+            </div>
+            <div class="system-card">
+                <h3>Automatic Unit</h3>
+                <p style="color: #999; margin-bottom: 1rem;">Automated irrigation and climate control</p>
+                <div class="system-price">Custom Quote <span>after site visit</span></div>
+                <ul>
+                    <li>Built for larger-scale production</li>
+                    <li>Automated watering and environment control</li>
+                    <li>Frees up daily labor time</li>
+                    <li>Scalable as your herd or flock grows</li>
+                    <li>Unit sized to your needs via site visit</li>
+                </ul>
+                <a href="tel:+254758578382" class="btn btn-primary" style="width: 100%; text-align: center;">Book a Site Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crops Section -->
+    <section class="crops">
+        <h2>Fodder Crops We Grow</h2>
+        <div class="crops-grid">
+            <div class="crop-card featured">
+                <h3>🌾 Barley</h3>
+                <p>Our top performer — barley fodder delivers around 15% crude protein, making it an excellent high-energy feed for livestock and poultry.</p>
+            </div>
+            <div class="crop-card">
+                <h3>🌾 Wheat</h3>
+                <p>A reliable, widely available option that sprouts quickly and produces consistent, palatable fodder.</p>
+            </div>
+            <div class="crop-card">
+                <h3>🌾 Millet</h3>
+                <p>A hardy grain suited to a variety of climates, ideal for farmers looking to diversify their feed source.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <h2>Our Process</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Site Visit</h3>
+                <p>We visit your farm to assess your needs and recommend the best, most cost-effective unit setup.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Unit Setup</h3>
+                <p>We install your manual or automatic fodder unit, structured and sized to match your production goals.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Training</h3>
+                <p>Your team learns hands-on how to maintain the unit and manage day-to-day fodder production.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Ongoing Production</h3>
+                <p>Start producing fresh, high-protein fodder every 7 days — consistent feed, year-round.</p>
+            </div>
+        </div>
+        <p style="text-align: center; color: #999; font-size: 0.9rem; margin-top: 2rem;">Site visits are available to discuss the best and most affordable setup for your farm — travel and accommodation for the day are covered by the client.</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2>Our Installations</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="structure-build.jpg" alt="Greenhouse structure under construction">
+                <div class="gallery-caption">Building the Structure</div>
+            </div>
+            <div class="gallery-item"><img src="unit-installation.jpg" alt="Hydroponic fodder rack installed">
+                <div class="gallery-caption">Unit Installation</div>
+            </div>
+            <div class="gallery-item"><img src="setup-training.jpg" alt="Technician setting up the fodder unit">
+                <div class="gallery-caption">Setup & Training</div>
+            </div>
+            <div class="gallery-item"><img src="sprouting.jpg" alt="Barley seeds sprouting in trays">
+                <div class="gallery-caption">Sprouting Begins</div>
+            </div>
+            <div class="gallery-item"><img src="growing-fodder.jpg" alt="Fodder growing in trays">
+                <div class="gallery-caption">Growing Fodder</div>
+            </div>
+            <div class="gallery-item"><img src="ready-7-days.jpg" alt="Dense fodder mat ready for harvest">
+                <div class="gallery-caption">Ready in 7 Days</div>
+            </div>
+            <div class="gallery-item"><img src="fresh-harvest.jpg" alt="Freshly harvested fodder mat">
+                <div class="gallery-caption">Fresh Harvest</div>
+            </div>
+            <div class="gallery-item"><img src="livestock-feeding-closeup.jpg" alt="Animal eating fresh fodder">
+                <div class="gallery-caption">Livestock Approved</div>
+            </div>
+            <div class="gallery-item"><img src="feeding-cattle.jpg" alt="Farmer feeding cattle with fresh fodder">
+                <div class="gallery-caption">Feeding Day</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos" id="videos">
+        <h2>See It In Action</h2>
+        <div class="videos-grid">
+            <div>
+                <div class="video-item">
+                    <video controls preload="metadata">
+                        <source src="VID-20261013-WA0060.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption">Our Hydroponic Fodder Unit</p>
+            </div>
+            <div>
+                <div class="video-item">
+                    <video controls preload="metadata">
+                        <source src="VID-20261013-WA0067.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption">Fodder Production Process</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Ready to Start Producing Your Own Fodder?</h2>
+        <p>Book a site visit and we'll help you find the most practical, cost-effective hydroponic fodder setup for your farm.</p>
+        <a href="tel:+254758578382" class="btn btn-secondary">Book a Site Visit</a>
+        <p style="margin-top: 1.5rem; margin-bottom: 0;">
+            <a href="tel:+254758578382" style="color: white; text-decoration: underline;">Call: 0758 578 382</a> &nbsp;·&nbsp;
+            <a href="https://wa.me/254758578382" target="_blank" rel="noopener" style="color: white; text-decoration: underline;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366" style="vertical-align: -3px; margin-right: 4px;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.19 3.03 14.69 2 12.04 2zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.19 8.19 0 012.42 5.83c0 4.55-3.71 8.25-8.27 8.25-1.46 0-2.9-.39-4.15-1.12l-.3-.17-3.09.81.82-3.01-.19-.31a8.2 8.2 0 01-1.26-4.37c0-4.56 3.71-8.33 8.17-8.33zm-4.5 4.4c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.09 0 1.23.9 2.42 1.03 2.59.13.17 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.49-.61 1.7-1.19.21-.59.21-1.09.15-1.19-.06-.11-.23-.17-.48-.3-.25-.13-1.49-.74-1.72-.82-.23-.08-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.39-.79-1.9-.2-.5-.41-.43-.57-.44-.15-.01-.31-.01-.48-.01z"/></svg>WhatsApp</a>            &nbsp;·&nbsp;
+            <a href="mailto:gatmaragenciesltd@gmail.com" style="color: white; text-decoration: underline;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2.2" style="vertical-align: -3px; margin-right: 4px;"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>Email us</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Manual Unit</a></li>
+                    <li><a href="#">Automatic Unit</a></li>
+                    <li><a href="#">Site Visits</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="#">Getting Started</a></li>
+                    <li><a href="#">Fodder Guides</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+254758578382">0758 578 382</a></li>
+                    <li><a href="https://wa.me/254758578382" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366" style="vertical-align: -2px; margin-right: 4px;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.19 3.03 14.69 2 12.04 2zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.19 8.19 0 012.42 5.83c0 4.55-3.71 8.25-8.27 8.25-1.46 0-2.9-.39-4.15-1.12l-.3-.17-3.09.81.82-3.01-.19-.31a8.2 8.2 0 01-1.26-4.37c0-4.56 3.71-8.33 8.17-8.33zm-4.5 4.4c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.09 0 1.23.9 2.42 1.03 2.59.13.17 1.75 2.8 4.31 3.82 2.13.85 2.56.68 3.03.64.46-.04 1.49-.61 1.7-1.19.21-.59.21-1.09.15-1.19-.06-.11-.23-.17-.48-.3-.25-.13-1.49-.74-1.72-.82-.23-.08-.4-.13-.57.13-.17.25-.65.82-.8.99-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.39-.79-1.9-.2-.5-.41-.43-.57-.44-.15-.01-.31-.01-.48-.01z"/></svg>WhatsApp: 0758 578 382</a></li>
+                    <li><a href="mailto:gatmaragenciesltd@gmail.com"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2.2" style="vertical-align: -2px; margin-right: 4px;"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>gatmaragenciesltd@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Refunds</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GATMAR. All rights reserved. Hydroponic fodder systems for livestock and poultry farmers.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
